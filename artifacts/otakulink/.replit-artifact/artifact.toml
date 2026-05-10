@@ -1,0 +1,26 @@
+kind = "mobile"
+previewPath = "/"
+title = "OtakuLink"
+version = "1.0.0"
+id = "artifacts/otakulink"
+router = "expo-domain"
+
+[[integratedSkills]]
+name = "expo"
+version = "1.0.0"
+
+[[services]]
+name = "expo"
+paths = [ "/" ]
+localPort = 25553
+
+[services.development]
+run = "pnpm --filter @workspace/otakulink run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/otakulink", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/otakulink", "run", "serve" ]
+
+[services.env]
+PORT = "25553"
+BASE_PATH = "/"
